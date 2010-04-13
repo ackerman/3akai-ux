@@ -35,7 +35,6 @@ sakai.site.site_admin = function(){
     sakai.site.oldSelectedPage = false;
     sakai.site.mytemplates = false;
     sakai.site.showingInsertMore = false;
-    sakai.site.portfolioPreviewMode = false;
 
     // Cache all the jQuery selectors we can
     var $main_content_div = $("#main-content-div");
@@ -953,7 +952,6 @@ sakai.site.site_admin = function(){
         $("#content_page_options").hide();
         $("#chat_main_container").hide();
         $("#preview_exit").show();
-        sakai.site.portfolioPreviewMode = true;
     });
     
     $("#preview_exit").click(function(){
@@ -962,19 +960,8 @@ sakai.site.site_admin = function(){
         $("#content_page_options").show();
         $("#chat_main_container").show();
         $("#preview_exit").hide();
-        sakai.site.portfolioPreviewMode = false;
     });
     
-    $("#portfolio_header").click(function(){
-        if (sakai.site.portfolioPreviewMode == true) {
-            $("#navigationchatcontainer").show();
-            $(".header").show();
-            $("#content_page_options").show();
-            $("#chat_main_container").show();
-            $("#preview_exit").hide();
-            sakai.site.portfolioPreviewMode = false;
-        } 
-    });
 
     //--------------------------------------------------------------------------------------------------------------
     //

@@ -257,6 +257,8 @@ sakai.site = function(){
 
                     // Load admin part from a separate file
                     $.Load.requireJS(sakai.site.siteAdminJS);
+                } else {
+                    $(".hide_for_non_collab").hide();
                 }
 
                 // Check user's login status
@@ -451,6 +453,11 @@ sakai.site = function(){
                 $page_nav_content.html(response);
                 sdata.widgets.WidgetLoader.insertWidgets("page_nav_content",null,sakai.site.currentsite.id + "/_widgets");
                 History.history_change();
+                if (sakai._isAnonymous) {
+                    $(".hide_for_anon").hide();
+                } else {
+                    $(".hide_for_anon").show();
+                }
             },
             error: function(xhr, textStatus, thrownError) {
                 History.history_change();

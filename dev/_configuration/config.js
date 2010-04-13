@@ -152,6 +152,13 @@ var Config = {
                 navigationMode: "portfolio",
                 navigationCss: "/dev/_skins/silicon/css/silicon_navigation.css"
             },
+            silicon2 : {
+                name : "Silicon2 sakai theme",
+                image : "_images/sakai_grey.png",
+                URL : "/dev/_skins/silicon2/silicon2.html",
+                navigationMode: "portfolio",
+                navigationCss: "/dev/_skins/silicon2/css/silicon2_navigation.css"
+            },
             camuniversity : {
                 name : "Cambridge University theme",
                 image : "/dev/_skins/camuniversity/images/camuniversity.png",

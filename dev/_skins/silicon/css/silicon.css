@@ -57,6 +57,11 @@ body {
     color: #006e96;
 }
 
+.sakai_site .sakai_site_contents_main {
+    margin: 0;
+    padding: 0;
+}
+
 /* Content Page Options */
 .sakai_site .content_page_options {
     background: #FFFFFF url("/dev/_images/portfolio_tab_bg_right.png") no-repeat scroll right top;
