@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="/dev/_css/sakai/sakai.site.css"/>
         <link rel="stylesheet" type="text/css" href="/dev/_css/sakai/sakai.dashboard.css"/>
         <link rel="stylesheet" type="text/css" href="/dev/_css/sakai/sakai.components.jq_pager.css" />
-        <link rel="stylesheet" type="text/css" href="/dev/_skins/silicon2/css/silicon2.css" />
+        <link rel="stylesheet" type="text/css" href="/dev/_skins/topbuttons/css/topbuttons.css" />
         <script type="text/javascript" language="JavaScript" src="/dev/_configuration/widgets.js">
         </script>
         <script type="text/javascript" language="JavaScript" src="/dev/_configuration/config.js">
@@ -82,7 +82,11 @@
                                 <li>
                                     <a id="site_management_basic_link" href="/dev/site_management_basic_settings.html?siteid=">Site Settings</a>
                                 </li>
-                                
+                                <li id="li_edit_page" style="display:none">
+                                    <a href="javascript:;" id="edit_page">__MSG__EDIT_PAGE__</a>
+                                </li>
+                                <li><a href="javascript:;" id="print_page">Print page</a></li>
+                                <li><a href="javascript:;" id="more_link">More</a></li>
                                 <!--<li>
                                     <li><a id="site_management_appearance_link" href="/dev/site_management_appearance.html?siteid=">Select Theme</a></li>
                                 </li>
@@ -154,33 +158,7 @@
                         </div>-->
                     </div>
                     <!-- TOP RIGHT MENU -->
-                    <div class="show_view_container  hide_for_non_collab">
-                        <div class="content_page_options" id="content_page_options">
-                            <ul class="fl-force-right">
-                                <li id="li_edit_page" style="display:none">
-                                    <a href="javascript:;" id="edit_page">__MSG__EDIT_PAGE__</a>
-                                </li>
-                                <li><a href="javascript:;" id="print_page">Print page</a></li>
-                                <li><a href="javascript:;" id="more_link">More</a></li>
-                                
-                                <!--<li id="more_revision_history">
-                                    <a href="javascript:;">Editing History</a>
-                                </li>
-                                <li id="more_save_as_template">
-                                    <a href="javascript:;">Save as Template</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">Tag</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" id="print_page">Print</a>
-                                </li>
-                                <li id="more_delete">
-                                    <a href="javascript:;">Delete</a>
-                                </li>-->
-                            </ul>
-                        </div>
-                    </div>
+                    
                 </div><!-- End portfolio_header -->
                 
                 <div id="portfolio_page_body">
@@ -602,6 +580,9 @@
                 </li>
                 <li id="more_move" class="more_option move_dialog_trigger">
                     <a href="javascript:;">Move</a>
+                </li>
+                <li id="add_blank_page">
+                    <a href="javascript:;">Add Blank Page</a>
                 </li>
                 <li id="option_page_from_template">
                     <a href="javascript:;">Page from Template</a>

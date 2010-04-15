@@ -1692,7 +1692,7 @@ sakai.site.site_admin = function(){
 
 
     // Bind Add a blank page click event
-    $("#option_blank_page").bind("click", function(ev){
+    $("#option_blank_page, #add_blank_page").bind("click", function(ev){
         if (sakai.site.versionHistoryNeedsReset) {
             sakai.site.resetVersionHistory();
             sakai.site.versionHistoryNeedsReset = false;
@@ -1701,7 +1701,7 @@ sakai.site.site_admin = function(){
     });
 
     // Bind Add a new blank page hover event
-    $("#option_blank_page").hover(
+    $("#option_blank_page, #add_blank_page").hover(
         function(over){
             $("#option_blank_page").addClass("selected_option");
         },
