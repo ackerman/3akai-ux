@@ -1559,13 +1559,16 @@ sakai.navigationchat = function(tuid, showSettings){
             $login_container.show();
         });
 
-        var personal_container_position = $("#explore_nav_container .personal-container").position();
+        var personal_container_position = $(".personal-container").position();
+        var personal_li_position = $(".personal ul li:first").position();
 
         // Adjust width of login container
         $login_container.css({
             "width": ($("#explore_nav_container .personal-container").innerWidth() - 19) + "px",
             "left": (personal_container_position.left - 8) + "px"
         });
+        // Fixed width for portfolio testing
+        $login_container.css({"width": "300px", "left": personal_li_position.left + "px", "top" : "-150px"});
 
         // Adjust width of inputs
         $("#login_container input").css({

@@ -35,7 +35,6 @@ sakai.site.site_admin = function(){
     sakai.site.oldSelectedPage = false;
     sakai.site.mytemplates = false;
     sakai.site.showingInsertMore = false;
-    sakai.site.portfolioPreviewMode = false;
 
     // Cache all the jQuery selectors we can
     var $main_content_div = $("#main-content-div");
@@ -973,7 +972,6 @@ sakai.site.site_admin = function(){
         $("#content_page_options").hide();
         $("#chat_main_container").hide();
         $("#preview_exit").show();
-        sakai.site.portfolioPreviewMode = true;
     });
     
     $("#preview_exit").click(function(){
@@ -982,19 +980,8 @@ sakai.site.site_admin = function(){
         $("#content_page_options").show();
         $("#chat_main_container").show();
         $("#preview_exit").hide();
-        sakai.site.portfolioPreviewMode = false;
     });
     
-    $("#portfolio_header").click(function(){
-        if (sakai.site.portfolioPreviewMode == true) {
-            $("#navigationchatcontainer").show();
-            $(".header").show();
-            $("#content_page_options").show();
-            $("#chat_main_container").show();
-            $("#preview_exit").hide();
-            sakai.site.portfolioPreviewMode = false;
-        } 
-    });
 
     //--------------------------------------------------------------------------------------------------------------
     //
@@ -1728,7 +1715,7 @@ sakai.site.site_admin = function(){
 
 
     // Bind Add a blank page click event
-    $("#option_blank_page").bind("click", function(ev){
+    $("#option_blank_page, #add_blank_page").bind("click", function(ev){
         if (sakai.site.versionHistoryNeedsReset) {
             sakai.site.resetVersionHistory();
             sakai.site.versionHistoryNeedsReset = false;
@@ -1737,7 +1724,7 @@ sakai.site.site_admin = function(){
     });
 
     // Bind Add a new blank page hover event
-    $("#option_blank_page").hover(
+    $("#option_blank_page, #add_blank_page").hover(
         function(over){
             $("#option_blank_page").addClass("selected_option");
         },
