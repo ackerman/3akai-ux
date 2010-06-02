@@ -140,6 +140,20 @@ sakai.config = {
                 name: "Cambridge University theme",
                 image: "/dev/_skins/camuniversity/images/camuniversity.png",
                 URL: "/dev/_skins/camuniversity/camuniversity.html"
+            },
+            clear : {
+                name : "Clear sakai theme",
+                image : "_images/sakai_grey.png",
+                URL : "/dev/_skins/clear/clear.html",
+                navigationMode: "portfolio",
+                navigationCss: "/dev/_skins/clear/css/clear_navigation.css"
+            },
+            silicon : {
+                name : "Silicon sakai theme",
+                image : "_images/sakai_grey.png",
+                URL : "/dev/_skins/silicon/silicon.html",
+                navigationMode: "portfolio",
+                navigationCss: "/dev/_skins/silicon/css/silicon_navigation.css"
             }
         }
     },

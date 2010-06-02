@@ -35,6 +35,7 @@ sakai.site.site_admin = function(){
     sakai.site.oldSelectedPage = false;
     sakai.site.mytemplates = false;
     sakai.site.showingInsertMore = false;
+    sakai.site.portfolioPreviewMode = false;
 
     // Cache all the jQuery selectors we can
     var $main_content_div = $("#main-content-div");
@@ -273,7 +274,8 @@ sakai.site.site_admin = function(){
             init_instance_callback: "sakai.site.startEditPage",
 
             // Example content CSS (should be your site CSS)
-            content_css: sakai.config.URL.TINY_MCE_CONTENT_CSS,
+            //content_css: Config.URL.TINY_MCE_CONTENT_CSS,
+            content_css: Config.URL.TINY_MCE_CONTENT_CSS + ",/dev/_skins/" + sakai.site.currentsite.style + "/css/" + sakai.site.currentsite.style + ".css",
 
             // Drop lists for link/image/media/template dialogs
             template_external_list_url: "lists/template_list.js",
@@ -554,6 +556,7 @@ sakai.site.site_admin = function(){
 
         // Switch to edit view
         $("#show_view_container").hide();
+        $(".show_view_container").hide();
         $("#edit_view_container").show();
 
         if (sakai.site.isEditingNavigation){
@@ -638,6 +641,7 @@ sakai.site.site_admin = function(){
                     // Switch back view
                     $("#edit_view_container").hide();
                     $("#show_view_container").show();
+                    $(".show_view_container").show();
                 }
             });
 
@@ -659,6 +663,7 @@ sakai.site.site_admin = function(){
             // Switch back to view mode
             $("#edit_view_container").hide();
             $("#show_view_container").show();
+            $(".show_view_container").show();
 
         }
     };
@@ -796,6 +801,7 @@ sakai.site.site_admin = function(){
                                     // Switch back to view mode
                                     $("#edit_view_container").hide();
                                     $("#show_view_container").show();
+                                    $(".show_view_container").show();
                                 }
                             });
                         } else {
@@ -806,6 +812,7 @@ sakai.site.site_admin = function(){
                             // Switch back to view mode
                             $("#edit_view_container").hide();
                             $("#show_view_container").show();
+                            $(".show_view_container").show();
                         }
 
                     } else {
@@ -833,6 +840,7 @@ sakai.site.site_admin = function(){
                 // Switch back to view mode
                 $("#edit_view_container").hide();
                 $("#show_view_container").show();
+                $(".show_view_container").show();
 
                 $("#" + sakai.site.selectedpage).show();
                 sdata.widgets.WidgetLoader.insertWidgets(sakai.site.selectedpage,null,sakai.site.currentsite.id + "/_widgets/");
@@ -888,6 +896,7 @@ sakai.site.site_admin = function(){
 
         $("#edit_view_container").hide();
         $("#show_view_container").show();
+        $(".show_view_container").show();
 
         sdata.widgets.WidgetLoader.insertWidgets("page_nav_content",null,sakai.site.currentsite.id + "/_widgets/");
 
@@ -918,6 +927,7 @@ sakai.site.site_admin = function(){
 
         return false;
     });
+    
 
 
     // Bind cancel button click
@@ -948,7 +958,43 @@ sakai.site.site_admin = function(){
     };
 
 
+    //--------------------------------------------------------------------------------------------------------------
+    //
+    // PORTFOLIO PREVIEW
+    //
+    //--------------------------------------------------------------------------------------------------------------
 
+    /**
+     * Hides Sakai navigationchat and editing toolbars
+     */
+    $("#preview_link").click(function() {
+        $("#navigationchatcontainer").hide();
+        $(".header").hide();
+        $("#content_page_options").hide();
+        $("#chat_main_container").hide();
+        $("#preview_exit").show();
+        sakai.site.portfolioPreviewMode = true;
+    });
+    
+    $("#preview_exit").click(function(){
+        $("#navigationchatcontainer").show();
+        $(".header").show();
+        $("#content_page_options").show();
+        $("#chat_main_container").show();
+        $("#preview_exit").hide();
+        sakai.site.portfolioPreviewMode = false;
+    });
+    
+    $("#portfolio_header").click(function(){
+        if (sakai.site.portfolioPreviewMode == true) {
+            $("#navigationchatcontainer").show();
+            $(".header").show();
+            $("#content_page_options").show();
+            $("#chat_main_container").show();
+            $("#preview_exit").hide();
+            sakai.site.portfolioPreviewMode = false;
+        } 
+    });
 
     //--------------------------------------------------------------------------------------------------------------
     //
