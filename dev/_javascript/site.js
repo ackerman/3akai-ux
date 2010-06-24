@@ -269,6 +269,10 @@ sakai.site = function(){
                 } else {
                     sakai._isAnonymous = true;
                     $loginLink.show();
+					if (sakai.site.currentsite['sakai:site-type'] === "portfolio") {
+						$(".header").hide();
+						$("#option_blank_page").hide();
+					}
                 }
 
                 // Show initial content and display site title

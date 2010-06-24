@@ -562,6 +562,7 @@ sakai.site.site_admin = function(){
 
         // Switch to edit view
         $("#show_view_container").hide();
+		$(".show_view_container").hide();
         $("#edit_view_container").show();
 
         if (sakai.site.isEditingNavigation){
@@ -646,6 +647,7 @@ sakai.site.site_admin = function(){
                     // Switch back view
                     $("#edit_view_container").hide();
                     $("#show_view_container").show();
+					$(".show_view_container").show();
                 }
             });
 
@@ -667,6 +669,8 @@ sakai.site.site_admin = function(){
             // Switch back to view mode
             $("#edit_view_container").hide();
             $("#show_view_container").show();
+			$(".show_view_container").show();
+			
 
         }
     };
@@ -824,6 +828,7 @@ sakai.site.site_admin = function(){
                                     // Switch back to view mode
                                     $("#edit_view_container").hide();
                                     $("#show_view_container").show();
+									$(".show_view_container").show();
                                 }
                             });
                         } else {
@@ -834,6 +839,7 @@ sakai.site.site_admin = function(){
                             // Switch back to view mode
                             $("#edit_view_container").hide();
                             $("#show_view_container").show();
+							$(".show_view_container").show();
                         }
 
                     } else {
@@ -861,6 +867,7 @@ sakai.site.site_admin = function(){
                 // Switch back to view mode
                 $("#edit_view_container").hide();
                 $("#show_view_container").show();
+				$(".show_view_container").show();
 
                 $("#" + sakai.site.selectedpage).show();
                 sakai.api.Widgets.widgetLoader.insertWidgets(sakai.site.selectedpage,null,sakai.site.currentsite.id + "/_widgets/");
@@ -926,6 +933,7 @@ sakai.site.site_admin = function(){
 
         $("#edit_view_container").hide();
         $("#show_view_container").show();
+		$(".show_view_container").show();
 
         sakai.api.Widgets.widgetLoader.insertWidgets("page_nav_content",null,sakai.site.currentsite.id + "/_widgets/");
 
@@ -1000,7 +1008,34 @@ sakai.site.site_admin = function(){
 
     };
 
+    //--------------------------------------------------------------------------------------------------------------
+    //
+    // PORTFOLIO PREVIEW
+    //
+    //--------------------------------------------------------------------------------------------------------------
 
+    /**
+     * Hides Sakai navigationchat and editing toolbars to preview a portfolio site
+     */
+	if (sakai.site.currentsite['sakai:site-type'] === "portfolio") {
+		$("#preview_link").click(function(){
+			$("#navigationchatcontainer").hide();
+			$(".header").hide();
+			$("#content_page_options").hide();
+			$("#option_blank_page").hide();
+			$("#chat_main_container").hide();
+			$("#preview_exit").show();
+		});
+		
+		$("#preview_exit").click(function(){
+			$("#navigationchatcontainer").show();
+			$(".header").show();
+			$("#content_page_options").show();
+			$("#chat_main_container").show();
+			$("#preview_exit").hide();
+		});
+	}
+    
 
 
     //--------------------------------------------------------------------------------------------------------------
@@ -1745,7 +1780,7 @@ sakai.site.site_admin = function(){
 
 
     // Bind Add a blank page click event
-    $("#option_blank_page").bind("click", function(ev){
+    $("#option_blank_page, #option_blank_page_button").bind("click", function(ev){
         if (sakai.site.versionHistoryNeedsReset) {
             sakai.site.resetVersionHistory();
             sakai.site.versionHistoryNeedsReset = false;
@@ -1962,7 +1997,7 @@ sakai.site.site_admin = function(){
 
         var select = $("#revision_history_list").get(0);
         var version = select.options[select.selectedIndex].value;
-
+		
         $.ajax({
             url: sakai.site.site_info._pages[sakai.site.selectedpage]["jcr:path"] + "/pageContent.version.," + version + ",.json",
             success : function(data) {

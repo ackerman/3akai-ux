@@ -139,6 +139,11 @@ sakai.config = {
                 image: "_images/sakai_grey.png",
                 URL: "/dev/_skins/original/original.html"
             },
+			silicon: {
+                name: "Silicon sakai theme",
+                image: "_images/sakai_grey.png",
+                URL: "/dev/_skins/silicon/silicon.html"
+            },
             camuniversity: {
                 name: "Cambridge University theme",
                 image: "/dev/_skins/camuniversity/images/camuniversity.png",

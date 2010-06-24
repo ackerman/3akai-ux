@@ -1,0 +1,530 @@
+/*
+ * Licensed to the Sakai Foundation (SF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The SF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+
+/* THINGS CHANGED TO WORK IN SAKAI 3 */
+
+html {
+	background: none;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+}
+#show_view_container.fl-col-fixed .content_container {
+	margin-left: 0;
+}
+.content_top_inner, .content_bottom_inner {
+	display: none;
+}
+.personal-container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.personal {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    /*position: absolute;
+    width: auto;
+    bottom: 0;*/
+    
+}
+
+.personal ul {
+    padding: 0;
+    margin: 0; 
+	position: relative;  
+}
+.personal ul li {
+    display: inline;
+    list-style: none;
+}
+
+.personal ul li a {
+    padding: 5px;
+    color: #006E96;
+}
+#portfolio_footer #login_container { background:none repeat scroll 0 0 #878A8C; left:310px; padding:10px; position: absolute; top:-75px; width:246px; z-index:1000; text-align: right; color: #eee; }
+#portfolio_footer #login_container input { border:1px solid #666666; height:20px; line-height:20px; margin:3px 0 10px; text-align:right; width:240px; font-size:11pt; font-weight:bold; color: #333; padding:0 10px 0 0; }
+#portfolio_footer #error_message { font-size: 9pt; color: #ff0; }
+#portfolio_footer #login_busy { background: url("../../../dev/_images/ajax_load.gif") 0 0 no-repeat; width: 80px; height: 10px; }
+
+#general_search_input {
+    width: 14em;
+    padding: 3px;
+}
+#preview_exit {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    border: none;
+}
+
+.fl-tabs {
+    border: none;
+}
+
+.fl-tabs li a {
+    border: 1px solid #D3DBDE;
+}
+
+.edit_view .edit_contents_main {
+    border: none !important;
+    padding: 0 0 10px 0 !important;
+}
+
+.edit_view .toolbar {
+    height: 25px;
+	border-top: 2px solid #D3DBDE;
+}
+
+.edit_view .content_bottom_inner {
+    background: none;
+}
+
+.sakai_site .content_bottom {
+    background: none;
+}
+.header .fixed-container {
+    background-image: none;
+    width: 100%;
+}
+
+.show_view_container {
+    margin-bottom: 5px;
+}
+
+#add_button {
+    float: right; 
+    margin-top: -30px; 
+    margin-right: -8px;   
+}
+#portfolio_level_options ul {
+    margin-left: -5px;
+}
+
+#portfolio_level_options li {
+    list-style-type: none;
+    display: inline;
+    float: left;
+    padding-left: 5px;
+    
+}
+
+#portfolio_level_options li a {
+    padding: 5px;
+    color: #006e96;
+    /*background-color: #E0F2FE;*/
+   background-color: #D6DBDF;
+    border: 1px outset #006e96;
+}
+
+.sakai_site .sakai_site_contents_main {
+    margin: 0;
+    padding: 0;
+}
+/* Content Page Options */
+.sakai_site .content_page_options {
+    /*background: #FFFFFF url("/dev/_images/portfolio_tab_bg_right.png") no-repeat scroll right top;*/
+   background: none;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sakai_site .content_page_options ul {
+    /*background: #FFFFFF url("/dev/_images/portfolio_tab_bg_left.png") no-repeat scroll left top;*/
+   background: none;
+}
+
+.sakai_site .content_page_options ul li {
+    padding: 5px;
+}
+.sakai_site .content_page_options ul li a {
+    padding: 5px;
+    color: #006e96;
+    /*background-color: #E0F2FE;*/
+    background-color: #D6DBDF;
+    border: 1px outset #006e96;
+}
+.sakai_site .content_page_options #edit_page {
+    background-image: none;
+    padding: 5px;
+    color: #006e96;
+    /*background-color: #E0F2FE;*/
+    background-color: #D6DBDF;
+    border: 1px outset #006e96;
+}
+
+.sakai_site .content_page_options #print_page {
+    background-image: none;
+    padding: 5px;
+    color: #006e96;
+    /*background-color: #E0F2FE;*/
+    background-color: #D6DBDF;
+    border: 1px outset #006e96;
+}
+
+.sakai_site .content_page_options #more_link {
+    background: url("/dev/_images/more_bg_18.png") no-repeat scroll left top transparent;
+    padding: 5px 26px 5px 5px;
+    color: #006e96;
+    
+    background-color: #D6DBDF;
+    border: 1px outset #006e96;
+}
+    
+#edit_tooltip {
+    color: #055089; 
+    background-color: #d6d8df; 
+    font-weight: bold; 
+    font-size: 1.5em; 
+    line-height: 2.2em; 
+    padding: 7px;
+    border: 1px solid #d6d8df; 
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px;
+}
+
+
+
+table {
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size: 1.1em;
+	border: none;
+}
+/* hiding/changing Sakai navigation */
+#explore_nav_container .explore_nav ul.explore li {
+	padding: 0;
+}
+
+.explore_nav ul.explore li.explore_nav_selected {
+	border-left: none;
+}
+
+.explore_nav .personal-container {
+	background-image: none;
+}
+
+.explore_nav .personal {
+	background-image: none;
+}
+.sakai_site .add_new_menu#add_new_menu {
+	position: static;
+}
+
+/* Note misspelling: genaral for general */
+#genaral_search_container {
+	/*display: none;*/
+}
+
+#chat_main_container {
+	/*display: none !important;*/
+}
+.sakai_site .sakai_site_contents_main {
+	border: none;
+}
+
+#title-input-container {
+	margin-bottom: 10px;
+}
+.portfolio_page_content td, .portfolio_page_content th {
+	border: none;
+}
+
+#portfolio_logo {
+	display: none;
+}
+
+#portfolio_primary_navigation {
+	width: auto;
+	margin-top: 10px;
+	padding: 5px;
+/*	border-bottom: 3px solid #055089;
+	border-top: 3px solid #055089;*/
+	font-size: 13px;
+}
+
+#portfolio_primary_navigation ul li a#navigation_page_selected {
+	background-color: #E0F2FE;
+}
+
+#portfolio_primary_navigation ul li a#navigation_page_selected:hover {
+	background-color: #E0F2FE;
+}
+
+div.navigation div.nav_content
+{ border-left: none; border-right: none; padding: 10px 5px 5px 5px; margin: 0; }
+
+div.navigation div.nav_content li a.rootpage
+{ background-image: none; }
+
+#siterecentactivity_output {
+	display: none !important;
+}
+
+.nav_titlebar, .nav_bottom {
+	display: none;
+}
+
+#page_nav_content p {
+	margin: 0;
+	padding: 0;
+}
+
+/* Change Page Composer class "active" to Sakai 3 class "clicked" */
+#portfolio_primary_navigation ul li a.clicked {
+	background-color: #E0F2FE;
+}
+
+#portfolio_primary_navigation ul li a.clicked:hover {
+	background-color: #E0F2FE;
+}
+
+.content p, #tinymce p {
+    padding: 0px;
+    font-size: 1.1em;
+}
+
+.content h1, #tinymce h1 {
+	font-size: 16px;
+    font-weight: bold;
+	color: #055089;
+    margin-bottom: 6px;
+}
+.content h2, #tinymce h2 {
+	font-size: 14px;
+	color: #333333;
+     
+}
+.content h3, #tinymce h3 {
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 3px;
+}
+.content h4, #tinymce h4 {
+  font-size: 12px;
+  color: #333;
+  margin: 3px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.content img, #tinymce img {
+  border: none;
+}
+.content a, #tinymce a {
+	color: #055089;
+	text-decoration: none;
+}
+.content a:hover, #tinymce a:hover {
+  text-decoration: underline;
+}
+.content a.active, #tinymce a.active {
+  text-decoration: underline;
+     
+}
+/* Make room for chat bar by increasing height and positioning background image top */
+#portfolio_footer {
+	clear: left;
+  font-size: 10px;
+  color: #999;
+	height: 130px; /* height of logo */
+  text-align:center;
+	background-image:url(/dev/_skins/silicon/images/logo.gif);
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin-top: 10px;
+    position: relative;
+}
+
+/* THINGS THAT ARE IDENTICAL IN BOTH SAKAI 2 AND 3 (Except paths in URLs) */
+
+
+
+table {
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size: 100%;
+}
+
+#xEditingArea {
+	border: 1px dashed #666666;
+}
+
+#currentlyEditingPage_1234 table {
+	width: 100%;
+}
+
+#portfolio_wrapper {
+	width: 980px;
+	margin: auto;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+#portfolio_splash {
+	height: 90px; /* Match the background image height for this layout */
+	background-image:url(/dev/_skins/silicon/images/silicon.jpg);
+	text-align: right;
+	margin-top: 20px;
+}
+
+#portfolio_participant_name {
+	font-family:"Arial Black", "Arial Rounded MT Bold", Arial, Helvetica, san-serif;
+	font-size: 2.3em;
+	color: #E0F2FE;
+	padding: 20px 0 0;
+	margin: 0;
+	margin-right: 15px;
+}
+
+#portfolio_title {
+	padding-top: 0px;
+	font-family:"Arial Black", "Arial Rounded MT Bold", Arial, Helvetica, san-serif;
+	font-size: 1.8em;
+	color: #E0F2FE;
+	padding: 15px 0;
+	margin: 0;
+	margin-right: 15px;
+}
+
+
+
+#portfolio_primary_navigation ul
+{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+#portfolio_primary_navigation ul li { display: inline; }
+
+#portfolio_primary_navigation ul li a
+{
+	text-decoration: none;
+	padding: .2em 1em;
+	color: #055089;
+	background-color: #FFFFFF;
+	font-weight: bold;
+	white-space: nowrap;
+	border: 1px solid #055089;
+	margin-right: 10px;
+}
+
+
+
+#portfolio_primary_navigation ul li a:hover
+{
+	background-color: #E0F2FE;
+}
+
+/* Container for Secondary Nav and Portfolio Content */
+#portfolio_page_body {
+/* part of hack to get the secondary nav column to extend to the bottom of the page */
+	overflow: hidden;
+}
+
+#portfolio_secondary_navigation {
+  width: 223px;
+  float: left;
+  line-height: 140%;
+  margin-top: 14px;
+	text-align: left;
+	padding: 5px 5px 5px 0px;
+	/*border: 1px solid #055089;*/
+	background-color: #E0F2FE;
+	height: 100%;
+/* part of hack to get the secondary nav column to extend to the bottom of the page */
+	padding-bottom: 20000px;
+	margin-bottom: -20000px;
+}
+
+#portfolio_secondary_navigation a {
+  display:block;
+  text-decoration: none;     
+}
+
+#portfolio_secondary_navigation a:hover {
+  text-decoration: underline;
+}
+
+#portfolio_secondary_navigation ul li {
+	list-style-type: none;
+	list-style-image: none;
+	margin-bottom: 6px;
+	margin-left: 0px;
+	font-weight: bold;
+}
+
+#portfolio_secondary_navigation ul.subnav_list li.active {
+	list-style-image: url(/dev/_skins/silicon/images/li.gif);
+}
+
+#portfolio_secondary_navigation ul {
+  padding-left: 2.0em;
+	margin-left: 0;
+}
+
+div.portfolio_page_content {
+  margin-top: 0;
+	text-align: left;
+	padding: 5px;
+	/*border-top: 1px solid #055089;
+	border-right: 1px solid #055089;*/
+}
+
+div.portfolioPage {
+	clear: left;
+}
+
+div.examplePage {
+	float: left;
+	padding-left: 20px;
+	width: 713px;
+/* part of hack to get the secondary nav column to extend to the bottom of the page */
+	padding-bottom: 20000px;
+	margin-bottom: -20000px;
+}
+
+div.hidden_block {
+	position: fixed;
+	display: none;
+	width: 1px;
+	height: 1px;
+	top: 1px;
+}
+
+
+
+
+#resume h2 {
+	margin-top: 0px;
+}
+
+#resume ul {
+	margin-top: 0px;
+}
+
+
+#portfolio_page_body ul li, #tinymce.mceContentBody ul li {
+  list-style-image: url(/dev/_skins/silicon/images/li.gif)
+}
+

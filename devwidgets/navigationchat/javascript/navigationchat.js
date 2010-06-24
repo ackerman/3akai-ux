@@ -194,6 +194,7 @@ sakai.navigationchat = function(tuid, showSettings){
     var userLinkMenuLink = userLink + "_menu" + " a";
 
     // Login
+	var $personal_container = $(".personal-container");
     var $login_error_message = $("#login_error_message");
     var $login_container = $("#login_container");
     var $login_submit_button = $("#login_submit_button");
@@ -1449,7 +1450,20 @@ sakai.navigationchat = function(tuid, showSettings){
      * and load the initial chat windows
      */
     var loadChatWindows = function(){
-
+		if (sakai.site.currentsite['sakai:site-type'] === "portfolio") {
+			$personal_container.appendTo("#portfolio_footer");
+			$personal_container.removeClass("fl-force-right");
+			$("#genaral_search_container").css({
+				"width": "450px",
+				"padding": "5px",
+				"margin": "0"
+			});
+			$("#general_search_input").css({"width": "16em", "float": "right"});
+			//$("#genaral_search_container").addClass("fl-force-right");
+			$("#genaral_search_container").appendTo(".explore_nav");
+			
+			
+		}
         // Check if there is a cookie from a previous visit
         if ($.cookie('sakai_chat')) {
             activewindows = $.parseJSON($.cookie("sakai_chat"));
@@ -1546,7 +1560,12 @@ sakai.navigationchat = function(tuid, showSettings){
 
         // Show Nav Container
         $(exploreNavigationContainer).show();
-
+		if (sakai.site.currentsite['sakai:site-type'] === "portfolio") {
+			$(exploreNavigationContainer).hide();
+			$("#genaral_search_container").hide();
+			$personal_container.appendTo("#portfolio_footer");
+			$personal_container.removeClass("fl-force-right");
+		}
         // Hide things which are irrelvant for Anonymous user
         $(".personal .mail").hide();
         $(".personal .sign_out").hide();
@@ -1568,26 +1587,70 @@ sakai.navigationchat = function(tuid, showSettings){
         $("#nav_search_link a").attr("href", sakai.config.URL.PUBLIC_SEARCH_URL_PAGE);
 
         // Bind Log in button
-        $("#login_button_container .log_in").bind("click", function(){
-            $login_container.show();
-        });
-
-        var personal_container_position = $("#explore_nav_container .personal-container").position();
-
-        // Adjust width of login container
-        $login_container.css({
-            "width": ($("#explore_nav_container .personal-container").innerWidth() - 19) + "px",
-            "left": (personal_container_position.left - 8) + "px"
-        });
-
-        // Adjust width of inputs
-        $("#login_container input").css({
-            "width": ($("#explore_nav_container .personal-container").innerWidth() - 30) + "px"
-        });
+		if (sakai.site.currentsite['sakai:site-type'] === "portfolio") {
+			$("#portfolio_footer #login_button_container .log_in").bind("click", function(){
+				$("#login_container").show();
+			});
+		} else {
+			$("#login_button_container .log_in").bind("click", function(){
+				$("#login_container").show();
+			});
+		}
+		
+		if (sakai.site.currentsite['sakai:site-type'] !== "portfolio") {
+			var personal_container_position = $("#explore_nav_container .personal-container").position();
+			
+			// Adjust width of login container
+			$login_container.css({
+				"width": ($("#explore_nav_container .personal-container").innerWidth() - 19) + "px",
+				"left": (personal_container_position.left - 8) + "px"
+			});
+			
+			// Adjust width of inputs
+			$("#login_container input").css({
+				"width": ($("#explore_nav_container .personal-container").innerWidth() - 30) + "px"
+			});
+		}
 
         // Bind Log in submit button
-        $login_submit_button.bind("click", function(){
-
+		if (sakai.site.currentsite['sakai:site-type'] === "portfolio") {
+			$("#portfolio_footer #login_submit_button").bind("click", function(){
+				// Hide any previous login error msgs
+				$login_error_message.hide();
+				
+				// Check if fileds are empty
+				if (($("#login_username").val() === "") || ($("#login_password").val() === "")) {
+					$login_error_message.show();
+					return;
+				}
+				else {
+					// Start logging in
+					
+					// Hide buttons
+					$login_submit_button.hide();
+					$login_cancel_button.hide();
+					
+					// Show ajax loader
+					$login_busy.show();
+					
+					var data = {
+						"sakaiauth:login": 1,
+						"sakaiauth:un": $("#login_username").val(),
+						"sakaiauth:pw": $("#login_password").val(),
+						"_charset_": "utf-8"
+					};
+					$.ajax({
+						url: sakai.config.URL.LOGIN_SERVICE,
+						type: "POST",
+						success: checkLogInSuccess,
+						error: checkLogInSuccess,
+						data: data
+					});
+					
+				}
+			});
+		} else {
+			$("#login_submit_button").bind("click", function(){
             // Hide any previous login error msgs
             $login_error_message.hide();
 
@@ -1622,6 +1685,7 @@ sakai.navigationchat = function(tuid, showSettings){
 
             }
         });
+		}
 
         // Cancel button
         $login_cancel_button.bind("click", function(){
