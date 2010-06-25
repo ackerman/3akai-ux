@@ -247,12 +247,10 @@ var Widgets = {
             "url":"/devwidgets/googlemaps/googlemaps.html"
         },
         "helloworld": {
-			"ca":true,
             "description":"Sakai Hackathon Example",
             "hasSettings":true,
             "id":"helloworld",
             "name":"Hello World",
-			"showinsakaigoodies":true,
             "url":"/devwidgets/helloworld/helloworld.html"
         },
         "helloworldwow": {

@@ -70,8 +70,7 @@ sakai.helloworld = function(tuid,showSettings){
         var toSelect = 0;
         for (var i = 0; i < select.options.length; i++){
             var option = select.options[i];
-            if (option.value === color) {
-				toSelect = i;
+            toSelect = option.value === color ? i : 0;
         }
         select.selectedIndex = toSelect;
     };
