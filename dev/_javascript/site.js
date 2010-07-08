@@ -595,8 +595,10 @@ sakai.site = function(){
           // Get page type
           pageType = sakai.site.site_info._pages[pageUrlName]["pageType"];
 
-          // Set page title
-          $pagetitle.text(sakai.site.site_info._pages[pageUrlName]["pageTitle"]);
+          // Set page title, unless this is a portfolio site
+          if (sakai.site.currentsite['sakai:site-type'] !== "portfolio") {
+              $pagetitle.text(sakai.site.site_info._pages[pageUrlName]["pageTitle"]);
+          }
         }
 
         // Set login link

@@ -878,7 +878,9 @@ sakai.site.site_admin = function(){
                     if (success) {
 
                         //Update title in HTML
-                        $("#pagetitle").html(sakai.site.site_info._pages[sakai.site.selectedpage]["pageTitle"]);
+                        if (sakai.site.currentsite['sakai:site-type'] !== "portfolio") {
+                            $("#pagetitle").html(sakai.site.site_info._pages[sakai.site.selectedpage]["pageTitle"]);
+                        }
 
                         // Create an activity item for the page edit
                         var nodeUrl = sakai.site.site_info._pages[sakai.site.selectedpage]["jcr:path"];
